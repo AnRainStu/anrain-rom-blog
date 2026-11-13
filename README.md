@@ -32,4 +32,4 @@ Flyme 和 Nothing OS 的 C.701 要求已记录在对应帖子中，Android 16 �
 
 ## GitHub Pages 备用下载页
 
-GitHub Actions 从 `seed.py` 生成独立的静态快照并发布到 GitHub Pages，即使主服务器离线仍可打开下载链接。备用页不运行 Flask、数据库或管理后台，快照不会自动包含主服务器后台新建或修改的内容。更新备用链接时请修改仓库里的 `seed.py` 并推送到 main，Actions 会重新发布。可在本地执行 `python build_static.py site` 生成备用页。
+GitHub Actions 从 `seed.py` 生成独立的[静态备用下载页](https://anrainstu.github.io/anrain-rom-blog/)，即使主服务器离线仍可打开下载链接。备用页不运行 Flask、数据库或管理后台，快照不会自动包含主服务器后台新建或修改的内容。更新备用链接时请修改仓库里的 `seed.py` 并推送到 main，Actions 会重新发布。可在本地执行 `python build_static.py site` 生成备用页。
