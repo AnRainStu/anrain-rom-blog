@@ -1,0 +1,11 @@
+{% extends 'base.html' %}{% block title %}{{ post.title }} · AnRainStudio{% endblock %}{% block content %}
+{% set group = 'native' if post.category in ['Android 16','Android 17','类原生'] else ('official' if post.category in ['官改','官改 ROM'] else 'port') %}
+<div class="article-wrap"><a class="back-link" href="{{ url_for('index', category=group) }}">← 返回分类列表</a>
+<article class="article glass">
+  <div class="article-header"><div class="eyebrow">RELEASE NOTES <span class="slash">//</span> {{ post.category }}</div><h1>{{ post.title }}</h1><div class="article-meta"><span>{{ post.published_at }}</span><span>✦</span><span>{{ post.version }}</span><span>ONEPLUS 13T</span></div><p class="article-lead">{{ post.summary }}</p>
+  {% if post.show_donation %}<div class="donation-banner"><div><strong>喜欢这个作品？ ♡</strong><span>自愿捐赠，不强制收费。</span></div><button class="button ghost donation-open" type="button">请作者喝可乐 ↗</button></div>{% endif %}</div>
+  <div class="article-body">{% for line in post.body.split('\n') %}{% set text = line.strip() %}{% if text.startswith('【') and text.endswith('】') %}<h2>{{ text[1:-1] }}</h2>{% elif text %}<p>{{ line }}</p>{% else %}<div class="body-space" aria-hidden="true"></div>{% endif %}{% endfor %}</div>
+  <div class="download-box"><div><div class="eyebrow">READY TO DOWNLOAD</div><h2>下载与刷机工具</h2><p>请先阅读上方更新、底包要求和刷机说明。</p></div><div class="download-buttons">{% if post.download_url %}<a class="button primary" href="{{ post.download_url }}" target="_blank" rel="noopener noreferrer">下载资源 ↗</a>{% endif %}{% if post.extra_url %}<a class="button ghost" href="{{ post.extra_url }}" target="_blank" rel="noopener noreferrer">{{ post.extra_label or '相关链接' }} ↗</a>{% endif %}<a class="button ghost" href="https://violettool.top/" target="_blank" rel="noopener noreferrer">紫罗兰工具箱 ↗</a><a class="button ghost" href="https://yun.lian86.top/" target="_blank" rel="noopener noreferrer">Lianbox ↗</a></div></div>
+  <p class="base-reference">其他底包：<a href="https://1813425761.share.123pan.cn/123pan/Rz6UVv-EX8K3?pwd=a7Sz#" target="_blank" rel="noopener noreferrer">C.500 ↗</a>（适用版本请确认，勿自行假定适用于本帖）</p>
+</article><p class="article-end">END OF LOG <span>✦</span> THANKS FOR READING</p></div>
+{% endblock %}

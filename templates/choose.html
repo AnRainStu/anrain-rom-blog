@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if not device %}
+<div class="home-layout home-dashboard">
+  <section class="identity-column">
+    <div class="identity-brand"><span class="identity-logo" aria-hidden="true">A<span>✦</span></span><div><div class="eyebrow">HELLO, I'M</div><h1>AnRain<span>Studio.</span></h1></div></div>
+    <div class="intro-card glass"><div class="eyebrow">ABOUT ME <span class="slash">//</span> 关于我</div><p>你好，这里是 AnRain。<br>AnRainStudio 由 PH2 维护，记录 ROM 发布、开发进度和折腾日常。</p><span>喜欢探索，也喜欢分享。 ✦</span></div>
+    <div class="social-row"><a href="https://github.com/AnRainStu/" target="_blank" rel="noopener noreferrer">GitHub ↗</a><span>QQ 3557393054</span><a href="mailto:anrainstu@gmail.com">Mail ↗</a></div>
+    <button class="button ghost donation-open home-donation" type="button">♡ &nbsp; 请作者喝可乐 <span>↗</span></button>
+  </section>
+  <div class="dashboard-column">
+    <div class="info-grid"><section class="info-card glass"><div class="eyebrow"><span class="live-dot"></span> WORK STATUS</div><h2>工作状态</h2><p class="status-value">{{ work_status }}</p><span class="info-caption">ANRAIN / DEVELOPMENT</span></section><section class="info-card clock-card glass"><div class="eyebrow">LOCAL TIME <span class="slash">//</span> 本地时间</div><p id="clock-date" class="clock-date">欢迎来到这里</p><time id="clock-time" class="clock-time">--:--:--</time><span class="info-caption">DREAM / BUILD / SHARE</span></section></div>
+    <section id="devices" class="device-section glass"><div class="block-head"><div><div class="eyebrow">ROM RELEASES <span class="slash">//</span> 刷机区</div><h2>选择机型</h2><p>选择设备，查看对应的 ROM 更新。</p></div><span class="block-decor">✳</span></div><a class="device-entry" href="{{ url_for('index', device='oneplus-13t') }}"><span class="device-symbol">13<span>T</span></span><span class="device-name"><strong>一加 13T</strong><small>ONEPLUS 13T · PAGANI</small></span><span class="device-go">进入 <b>↗</b></span></a></section>
+    <div class="dashboard-caption">ANRAIN STUDIO <span>✦</span> KEEP CREATING</div>
+  </div>
+</div>
+{% else %}
+<section class="channel-head"><a class="back-link" href="{{ url_for('index') }}">← 返回选择机型</a><div class="eyebrow">ONEPLUS 13T <span class="slash">//</span> PAGANI</div><h1>选择 ROM 分类 <span>✳</span></h1><p>选一个你感兴趣的方向，查看对应发布。</p></section>
+<section class="channel-section"><div class="choice-grid"><a class="choice-card glass" href="{{ url_for('index', category='native') }}"><span class="choice-number">01 / NATIVE</span><span class="choice-icon">✳</span><h3>类原生</h3><p>Android 类原生 ROM 更新与归档</p><span class="choice-arrow">进入分类 ↗</span></a><a class="choice-card glass" href="{{ url_for('index', category='official') }}"><span class="choice-number">02 / MODIFIED</span><span class="choice-icon">◇</span><h3>官改</h3><p>基于官方系统的修改与精简</p><span class="choice-arrow">进入分类 ↗</span></a><a class="choice-card glass" href="{{ url_for('index', category='port') }}"><span class="choice-number">03 / PORTED</span><span class="choice-icon">⌘</span><h3>移植</h3><p>移植 ROM 与应用资源</p><span class="choice-arrow">进入分类 ↗</span></a></div></section>
+{% endif %}
+{% endblock %}
